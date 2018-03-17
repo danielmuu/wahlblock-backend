@@ -7,8 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author danmu
  * created on 2018-03-10
  */
-
-
 @SpringBootApplication
 public class WahlblockBackendApplication {
 
