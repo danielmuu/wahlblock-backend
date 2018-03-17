@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class WahlblockController {
 
     private final VoterLoginService voterLoginService;
-    private ElectionInfoService electionInfoService;
+    private final ElectionInfoService electionInfoService;
 
     @Autowired
     public WahlblockController(final VoterLoginService voterLoginService, final ElectionInfoService electionInfoService) {

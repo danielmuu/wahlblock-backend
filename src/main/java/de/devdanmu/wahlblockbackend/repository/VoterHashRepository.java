@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
  * @author danmu
  * created on 2018-03-15
  */
+@SuppressWarnings("unchecked")
 @Repository
 public interface VoterHashRepository extends JpaRepository<VoterHash, String> {
 
