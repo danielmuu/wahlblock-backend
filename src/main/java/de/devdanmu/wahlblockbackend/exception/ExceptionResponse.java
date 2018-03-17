@@ -1,4 +1,4 @@
-package de.devdanmu.wahlblockbackend.error;
+package de.devdanmu.wahlblockbackend.exception;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;

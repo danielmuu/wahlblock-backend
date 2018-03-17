@@ -1,9 +1,5 @@
-package de.devdanmu.wahlblockbackend.error;
+package de.devdanmu.wahlblockbackend.exception;
 
-import de.devdanmu.wahlblockbackend.exception.CustomException;
-import de.devdanmu.wahlblockbackend.exception.ElectionNotFoundException;
-import de.devdanmu.wahlblockbackend.exception.NotAVoterException;
-import de.devdanmu.wahlblockbackend.exception.VoterLoggedInException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
