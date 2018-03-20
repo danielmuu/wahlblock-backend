@@ -1,11 +1,14 @@
 package de.devdanmu.wahlblockbackend.controller;
 
 import de.devdanmu.wahlblockbackend.jpa.Election;
+import de.devdanmu.wahlblockbackend.jpa.LoginVoter;
 import de.devdanmu.wahlblockbackend.jpa.VoterHash;
 import de.devdanmu.wahlblockbackend.service.ElectionInfoService;
 import de.devdanmu.wahlblockbackend.service.VoterLoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,10 +28,9 @@ public class WahlblockController {
         this.electionInfoService = electionInfoService;
     }
 
-    @GetMapping("/api/v1/voter/login")
-    public VoterHash getLoginPermission(@RequestParam(value = "idcardnumber") final String idCardNumber, @RequestParam(value = "publickey") final String publicKey, @RequestParam(value = "voterkey") final Integer voterKey) throws Exception {
-        // todo remove parameters and read them from body
-        return voterLoginService.startVoterLogin(idCardNumber, voterKey, publicKey);
+    @PostMapping("/api/v1/voter/login")
+    public VoterHash setLoginAndGetPermission(@RequestBody LoginVoter loginVoter) throws Exception {
+        return voterLoginService.startVoterLogin(loginVoter);
     }
 
     @GetMapping("/api/v1/election")

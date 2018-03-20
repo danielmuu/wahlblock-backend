@@ -2,6 +2,7 @@ package de.devdanmu.wahlblockbackend.service;
 
 import de.devdanmu.wahlblockbackend.exception.NotAVoterException;
 import de.devdanmu.wahlblockbackend.exception.VoterLoggedInException;
+import de.devdanmu.wahlblockbackend.jpa.LoginVoter;
 import de.devdanmu.wahlblockbackend.jpa.Voter;
 import de.devdanmu.wahlblockbackend.jpa.VoterHash;
 import de.devdanmu.wahlblockbackend.repository.VoterHashRepository;
@@ -29,12 +30,12 @@ public class VoterLoginService {
         this.voterHashRepository = voterHashRepository;
     }
 
-    public VoterHash startVoterLogin(final String idCardNumber, final Integer voterKey, final String publicKey) throws Exception {
+    public VoterHash startVoterLogin(final LoginVoter loginVoter) throws Exception {
         VoterHash voterHash = null;
-        if (isIdCardFormatValid(idCardNumber) && isVoterKeyFormatValid(voterKey)) {
-            Voter voter = voterRepository.findFirstByIdCardNumberAndVoterKey(idCardNumber, voterKey);
+        if (isIdCardFormatValid(loginVoter.getIdCardNumber()) && isVoterKeyFormatValid(loginVoter.getVoterKey())) {
+            Voter voter = voterRepository.findFirstByIdCardNumberAndVoterKey(loginVoter.getIdCardNumber(), loginVoter.getVoterKey());
             if (checkVotersVotePermission(voter)) {
-                voterHash = getVoterHash(publicKey);
+                voterHash = getVoterHash(loginVoter.getPublicKey());
                 if (!StringUtils.isEmpty(voterHash.getHash())) {
                     voterHashRepository.save(voterHash);
                     voterService.updateVoterLoginStatus(voter);
@@ -48,7 +49,7 @@ public class VoterLoginService {
         }
     }
 
-    private VoterHash getVoterHash(String publicKey) {
+    private VoterHash getVoterHash(final String publicKey) {
         String hash = SecretUtil.getSha256Hash(publicKey);
         return new VoterHash(hash);
     }
@@ -63,16 +64,15 @@ public class VoterLoginService {
             return true;
         }
     }
-
     // todo check with validation
-    private boolean isVoterKeyFormatValid(Integer voterKey) {
+
+    private boolean isVoterKeyFormatValid(final Integer voterKey) {
         String voterKeyPattern = "^[0-9]{6}$";
         return voterKey.toString().matches(voterKeyPattern);
     }
 
-    private boolean isIdCardFormatValid(String idCardNumber) {
+    private boolean isIdCardFormatValid(final String idCardNumber) {
         String idCardPattern = "^[0-9CFGHJKLMNPRTVWXYZ]+$";
         return idCardNumber.matches(idCardPattern);
     }
-
 }
