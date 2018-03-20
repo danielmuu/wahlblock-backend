@@ -15,7 +15,7 @@ public class SecretUtil {
 
     private static final String CHAR_SET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-    public static String getSha256Hash(String publicKey) {
+    public static String getSha256Hash(final String publicKey) {
         int saltSize = 256;
         byte[] salt = generateSalt(saltSize);
         try {
@@ -28,11 +28,11 @@ public class SecretUtil {
             }
             return sb.toString();
         } catch (NoSuchAlgorithmException e) {
-            throw new ServerErrorException("Test");
+            throw new ServerErrorException("Test"); // todo better exception handling
         }
     }
 
-    private static byte[] generateSalt(int len) {
+    private static byte[] generateSalt(final int len) {
         byte[] salt = new byte[len];
         SecureRandom secureRandom = new SecureRandom();
         for (int i = 0; i < len; i++) {
