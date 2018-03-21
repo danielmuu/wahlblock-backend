@@ -15,11 +15,6 @@ import javax.persistence.SequenceGenerator;
 public class Voter {
 
     @Id
-    @SequenceGenerator(name = "voter_seq_generator", sequenceName = "voter_seq_generator", allocationSize = 1)
-    private int id;
-
-    private String name;
-
     private String idCardNumber;
 
     private Integer voterKey;
