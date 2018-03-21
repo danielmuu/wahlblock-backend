@@ -11,6 +11,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ElectionRepository extends JpaRepository<Election, String> {
 
-    Election findFirstBy();
+    Election findFirstById(int id);
 }
 
