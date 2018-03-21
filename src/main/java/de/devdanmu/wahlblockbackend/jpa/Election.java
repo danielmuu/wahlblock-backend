@@ -1,7 +1,6 @@
 package de.devdanmu.wahlblockbackend.jpa;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.Column;
@@ -18,12 +17,11 @@ import java.time.LocalDateTime;
 public class Election {
 
     @Id
-    @JsonIgnore
     private int id;
 
     private String title;
 
-    @Column(columnDefinition="TEXT")
+    @Column(columnDefinition = "TEXT")
     private String description;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
