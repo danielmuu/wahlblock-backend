@@ -67,7 +67,7 @@ public class VoterLoginService {
     // todo check with validation
 
     private boolean isVoterKeyFormatValid(final Integer voterKey) {
-        String voterKeyPattern = "^[0-9]{6}$";
+        String voterKeyPattern = "^[0-9]{8}$";
         return voterKey.toString().matches(voterKeyPattern);
     }
 
@@ -76,3 +76,4 @@ public class VoterLoginService {
         return idCardNumber.matches(idCardPattern);
     }
 }
+
