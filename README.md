@@ -7,24 +7,24 @@
 Returns for a election id the election information
 
 | **URL** |
-|---|
+|:---|
 | `/api/v1/election/:id` |
 
 | **Method** |
-|---|
+|:---|
 | `GET` |
 
 | **URL Params** |
-|---|
+|:---|
 | *Required:* |
 | `id`: id of election, always 1 atm |
 
 | **Example URL** |
-|---|
+|:---|
 | `/api/v1/election/1` |
 
 | **Example Success Response** |
-|---|
+|:---|
 | **Code:** 200 OK |
 
 Example Return Body:
@@ -53,15 +53,15 @@ Example Return Body:
 Logs the voter in once and returns a hash value if voter not logged in before
 
 | **URL** |
-|---|
+|:---|
 | `/api/v1/voter/login` |
 
 | **Method** |
-|---|
+|:---|
 | `POST` |
 
 | **Headers** |
-|---|
+|:---|
 | `Content-Type: application/json` |
 
 Body:
@@ -74,11 +74,11 @@ Body:
 ```
 
 | **Example URL** |
-|---|
+|:---|
 | `/api/v1/voter/login` |
 
 | **Example Success Response** |
-|---|
+|:---|
 | **Code:** 200 OK |
 
 Example Return Body:
@@ -93,15 +93,15 @@ Example Return Body:
 validates a list of hash values and returns all not valid hash values as a list
 
 | **URL** |
-|---|
+|:---|
 | `/api/v1/validation` |
 
 | **Method** |
-|---|
+|:---|
 | `POST` |
 
 | **Headers** |
-|---|
+|:---|
 | `Content-Type: application/json` |
 
 Body:
@@ -117,11 +117,11 @@ Body:
 ```
 
 | **Example URL** |
-|---|
+|:---|
 | `/api/v1/validation` |
 
 | **Example Success Response** |
-|---|
+|:---|
 | **Code:** 200 OK |
 
 Example Return Body:
