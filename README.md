@@ -23,11 +23,9 @@ Returns for a election id the election information
 |:---|
 | `/api/v1/election/1` |
 
-| **Example Success Response** |
+| **Example success response with body** |
 |:---|
 | **Code:** 200 OK |
-
-Example Return Body:
 ```json
 {
     "id": 1,
@@ -77,11 +75,9 @@ Body:
 |:---|
 | `/api/v1/voter/login` |
 
-| **Example Success Response** |
+| **Example success response with body** |
 |:---|
 | **Code:** 200 OK |
-
-Example Return Body:
 ```json
 {
     "hash": "6485f6d071b2a88a0c6f3dc997280fa8bb21dbb0d252280db7fcac3eecddbc52"
@@ -120,11 +116,9 @@ Body:
 |:---|
 | `/api/v1/validation` |
 
-| **Example Success Response** |
+| **Example success response with body** |
 |:---|
 | **Code:** 200 OK |
-
-Example Return Body:
 ```json
 [
     "123",
