@@ -84,6 +84,19 @@ Body:
 }
 ```
 
+| **Example failure response with body** |
+|:---|
+| **Code:** 404 Forbidden |
+| **Possible messages:** "Voter logged in before", "Voting not allowed" |
+```json
+{
+    "status": "FORBIDDEN",
+    "message": "Voter logged in before",
+    "detail": "uri=/api/v1/voter/login",
+    "timestamp": "2018-03-24 12:58:47"
+}
+```
+
 ### 1.3 Validate hash values
 
 validates a list of hash values and returns all not valid hash values as a list
@@ -128,10 +141,16 @@ Body:
 
 ## 2. Usage
 
-Just run
+Use the included gradle wrapper to run the project
 
+Run the application
 ```bash
-gradle wrapper
+./gradlew bootRun
+```
+
+See all other available tasks
+```bash
+./gradlew tasks
 ```
 
 ## 3. Info
@@ -139,3 +158,5 @@ gradle wrapper
 DB data is lost when closing application
 
 ## 4. Known Issues
+
+...
