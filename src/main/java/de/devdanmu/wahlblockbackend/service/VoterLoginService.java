@@ -45,7 +45,7 @@ public class VoterLoginService {
             }
             return voterHash;
         } else {
-            throw new Exception(); // todo better exception handling
+            throw new Exception("Credential data is unexpected formatted"); // todo better exception handling
         }
     }
 
@@ -57,15 +57,15 @@ public class VoterLoginService {
 
     private boolean checkVotersVotePermission(final Voter voter) throws Exception {
         if (voter == null) {
-            throw new NotAVoterException("Login is not a voter");
+            throw new NotAVoterException("Voting not allowed");
         } else if (voter.isVoteSessionStarted()) {
             throw new VoterLoggedInException("Voter logged in before");
         } else {
             return true;
         }
     }
-    // todo check with validation
 
+    // todo check with validation
     private boolean isVoterKeyFormatValid(final Integer voterKey) {
         String voterKeyPattern = "^[0-9]{8}$";
         return voterKey.toString().matches(voterKeyPattern);
@@ -76,4 +76,3 @@ public class VoterLoginService {
         return idCardNumber.matches(idCardPattern);
     }
 }
-
