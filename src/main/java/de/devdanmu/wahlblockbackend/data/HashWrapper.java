@@ -1,4 +1,4 @@
-package de.devdanmu.wahlblockbackend.jpa;
+package de.devdanmu.wahlblockbackend.data;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

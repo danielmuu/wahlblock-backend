@@ -1,6 +1,6 @@
 package de.devdanmu.wahlblockbackend.repository;
 
-import de.devdanmu.wahlblockbackend.jpa.Voter;
+import de.devdanmu.wahlblockbackend.data.entity.Voter;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,6 +1,6 @@
 package de.devdanmu.wahlblockbackend.service;
 
-import de.devdanmu.wahlblockbackend.jpa.Voter;
+import de.devdanmu.wahlblockbackend.data.entity.Voter;
 import de.devdanmu.wahlblockbackend.repository.VoterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

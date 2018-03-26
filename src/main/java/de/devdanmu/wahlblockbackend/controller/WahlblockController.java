@@ -1,9 +1,9 @@
 package de.devdanmu.wahlblockbackend.controller;
 
-import de.devdanmu.wahlblockbackend.jpa.Election;
-import de.devdanmu.wahlblockbackend.jpa.HashWrapper;
-import de.devdanmu.wahlblockbackend.jpa.LoginVoter;
-import de.devdanmu.wahlblockbackend.jpa.VoterHash;
+import de.devdanmu.wahlblockbackend.data.entity.Election;
+import de.devdanmu.wahlblockbackend.data.HashWrapper;
+import de.devdanmu.wahlblockbackend.data.LoginVoter;
+import de.devdanmu.wahlblockbackend.data.entity.VoterHash;
 import de.devdanmu.wahlblockbackend.service.ElectionInfoService;
 import de.devdanmu.wahlblockbackend.service.HashValidationService;
 import de.devdanmu.wahlblockbackend.service.VoterLoginService;

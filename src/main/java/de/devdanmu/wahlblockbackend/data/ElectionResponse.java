@@ -1,5 +1,7 @@
-package de.devdanmu.wahlblockbackend.jpa;
+package de.devdanmu.wahlblockbackend.data;
 
+import de.devdanmu.wahlblockbackend.data.entity.Election;
+import de.devdanmu.wahlblockbackend.data.entity.SelectionOptions;
 import lombok.Data;
 
 import java.util.List;

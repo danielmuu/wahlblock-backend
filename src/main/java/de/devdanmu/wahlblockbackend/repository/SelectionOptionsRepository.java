@@ -1,6 +1,6 @@
 package de.devdanmu.wahlblockbackend.repository;
 
-import de.devdanmu.wahlblockbackend.jpa.SelectionOptions;
+import de.devdanmu.wahlblockbackend.data.entity.SelectionOptions;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

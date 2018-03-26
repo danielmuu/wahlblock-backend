@@ -1,9 +1,9 @@
 package de.devdanmu.wahlblockbackend.service;
 
 import de.devdanmu.wahlblockbackend.exception.ElectionNotFoundException;
-import de.devdanmu.wahlblockbackend.jpa.Election;
-import de.devdanmu.wahlblockbackend.jpa.ElectionResponse;
-import de.devdanmu.wahlblockbackend.jpa.SelectionOptions;
+import de.devdanmu.wahlblockbackend.data.entity.Election;
+import de.devdanmu.wahlblockbackend.data.ElectionResponse;
+import de.devdanmu.wahlblockbackend.data.entity.SelectionOptions;
 import de.devdanmu.wahlblockbackend.repository.ElectionRepository;
 import de.devdanmu.wahlblockbackend.repository.SelectionOptionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;

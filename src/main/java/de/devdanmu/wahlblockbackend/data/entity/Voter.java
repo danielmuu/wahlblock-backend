@@ -1,10 +1,9 @@
-package de.devdanmu.wahlblockbackend.jpa;
+package de.devdanmu.wahlblockbackend.data.entity;
 
 import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 
 /**
  * @author danmu

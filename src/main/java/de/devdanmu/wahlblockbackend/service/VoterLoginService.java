@@ -2,9 +2,9 @@ package de.devdanmu.wahlblockbackend.service;
 
 import de.devdanmu.wahlblockbackend.exception.NotAVoterException;
 import de.devdanmu.wahlblockbackend.exception.VoterLoggedInException;
-import de.devdanmu.wahlblockbackend.jpa.LoginVoter;
-import de.devdanmu.wahlblockbackend.jpa.Voter;
-import de.devdanmu.wahlblockbackend.jpa.VoterHash;
+import de.devdanmu.wahlblockbackend.data.LoginVoter;
+import de.devdanmu.wahlblockbackend.data.entity.Voter;
+import de.devdanmu.wahlblockbackend.data.entity.VoterHash;
 import de.devdanmu.wahlblockbackend.repository.VoterHashRepository;
 import de.devdanmu.wahlblockbackend.repository.VoterRepository;
 import de.devdanmu.wahlblockbackend.util.SecretUtil;
