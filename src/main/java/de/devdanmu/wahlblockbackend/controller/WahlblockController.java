@@ -8,6 +8,7 @@ import de.devdanmu.wahlblockbackend.service.ElectionInfoService;
 import de.devdanmu.wahlblockbackend.service.HashValidationService;
 import de.devdanmu.wahlblockbackend.service.VoterLoginService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,7 @@ import java.util.List;
  * @author danmu
  * created on 2018-03-10
  */
+@CrossOrigin
 @RestController
 public class WahlblockController {
 
