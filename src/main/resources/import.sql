@@ -1,7 +1,7 @@
 INSERT INTO selection_options(id, election_id, position, option) VALUES (1,1,1,'Ja');
 INSERT INTO selection_options(id, election_id, position, option) VALUES (2,1,2,'Nein');
 
-INSERT INTO election(id, title, description, begin_date, end_date) VALUES (1, 'Wahl von Lorem ipsum dolor sit amet', 'Cat ipsum dolor sit amet, run in circles sit in box but cough hairball on conveniently placed pants or then cats take over the world. My slave human didn''t give me any food so i pooped on the floor show belly or eat all the power cords ears back wide eyed. Prance along on top of the garden fence, annoy the neighbor''s dog and make it bark sniff sniff.', '2018-04-01 10:00:00.000', '2019-04-30 23:59:59.999');
+INSERT INTO election(id, title, description, begin_date, end_date) VALUES (1, 'Sind sie für das Verbot von Haustierprofilen auf Facebook?', 'Seit dem letzten Datenschutzskandal bei Facebook, machen sich immer mehr Haustiere Sorgen um ihre Daten. Das Verbot von Haustierprofilen gibt den Tieren ein kleines bisschen Anonymität zurück und verhindert, dass die Haustierbesitzer unerlaubt Daten ihrer haarigen Begleiter teilen.', '2018-04-01 10:00:00.000', '2019-04-30 23:59:59.999');
 
 INSERT INTO voter(id_card_number, voter_key, vote_session_started) VALUES ('RL9LFV9TH','36176105', FALSE);
 INSERT INTO voter(id_card_number, voter_key, vote_session_started) VALUES ('WV4MV6HHT','23909098', FALSE);
