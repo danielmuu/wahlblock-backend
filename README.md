@@ -4,7 +4,7 @@
 
 ### 1.1 Get info about a election
 
-Returns for a election id the election information
+Returns for a election id the election information with title, description and election period.
 
 | **URL** |
 |:---|
@@ -48,7 +48,7 @@ Returns for a election id the election information
 
 ### 1.2 Log voter in
 
-Logs the voter in once and returns a hash value if voter not logged in before
+Logs the voter in once and returns a hash value if voter not logged in before.
 
 | **URL** |
 |:---|
@@ -99,7 +99,7 @@ Body:
 
 ### 1.3 Validate hash values
 
-validates a list of hash values and returns all not valid hash values as a list
+Validates a list of hash values and returns all non valid hash values as a list.
 
 | **URL** |
 |:---|
