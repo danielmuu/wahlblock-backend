@@ -5,23 +5,34 @@ import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
+import java.io.Serializable;
 
 /**
  * @author danmu
  * created on 2018-03-21
  */
-@Entity
 @Data
-public class SelectionOptions {
+@Entity
+@IdClass(SelectionOptionsPrimaryKey.class)
+public class SelectionOptions implements Serializable {
 
     @Id
     @JsonIgnore
-    private int id;
+    private int electionId;
 
-    @JsonIgnore
-    private int electionId; // todo make electionId and position primary key
-
+    @Id
     private int position;
 
     private String option;
+
+}
+
+@Data
+class SelectionOptionsPrimaryKey implements Serializable {
+
+    private int electionId;
+
+    private int position;
+
 }
