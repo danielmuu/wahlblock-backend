@@ -3,6 +3,7 @@ package de.devdanmu.wahlblockbackend.data;
 import de.devdanmu.wahlblockbackend.data.entity.Election;
 import de.devdanmu.wahlblockbackend.data.entity.SelectionOptions;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * created on 2018-03-21
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class ElectionResponse extends Election {
 
     private List<SelectionOptions> selectionOptions;
