@@ -50,12 +50,12 @@ public class WahlblockController {
     }
 
     @GetMapping("/api/v1/election/{electionId}")
-    public Election getElectionInfo(@PathVariable int electionId) throws Exception {
+    public Election getElectionInfo(@PathVariable final Integer electionId) throws Exception {
         return electionInfoService.getElection(electionId);
     }
 
     @PostMapping("/api/v1/validation")
-    public List<String> getHashValidation(@RequestBody HashWrapper hashWrapper) {
+    public List<String> getHashValidation(@RequestBody final HashWrapper hashWrapper) {
         return hashValidationService.validateHashList(hashWrapper.getHashList());
     }
 }
