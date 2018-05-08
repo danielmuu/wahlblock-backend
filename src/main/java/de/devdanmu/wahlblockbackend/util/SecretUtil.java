@@ -16,20 +16,24 @@ public class SecretUtil {
     private static final String CHAR_SET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
     public static String getSha256Hash(final String publicKey) {
+        try {
+            return tryToGenerateSha256Hash(publicKey);
+        } catch (NoSuchAlgorithmException e) {
+            throw new ServerErrorException("Hash couldn't be generated."); // todo better exception handling
+        }
+    }
+
+    private static String tryToGenerateSha256Hash(String publicKey) throws NoSuchAlgorithmException {
         int saltSize = 256;
         byte[] salt = generateSalt(saltSize);
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
-            messageDigest.update(salt);
-            byte[] bytes = messageDigest.digest(publicKey.getBytes(StandardCharsets.UTF_8));
-            StringBuilder sb = new StringBuilder();
-            for (byte aByte : bytes) {
-                sb.append(Integer.toString((aByte & 0xff) + 0x100, 16).substring(1));
-            }
-            return sb.toString();
-        } catch (NoSuchAlgorithmException e) {
-            throw new ServerErrorException("Test"); // todo better exception handling
+        MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+        messageDigest.update(salt);
+        byte[] bytes = messageDigest.digest(publicKey.getBytes(StandardCharsets.UTF_8));
+        StringBuilder sb = new StringBuilder();
+        for (byte aByte : bytes) {
+            sb.append(Integer.toString((aByte & 0xff) + 0x100, 16).substring(1));
         }
+        return sb.toString();
     }
 
     private static byte[] generateSalt(final int len) {
