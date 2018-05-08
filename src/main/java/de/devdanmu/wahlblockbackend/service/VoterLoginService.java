@@ -2,7 +2,7 @@ package de.devdanmu.wahlblockbackend.service;
 
 import de.devdanmu.wahlblockbackend.exception.NotAVoterException;
 import de.devdanmu.wahlblockbackend.exception.VoterLoggedInException;
-import de.devdanmu.wahlblockbackend.data.LoginVoter;
+import de.devdanmu.wahlblockbackend.data.VoterLogin;
 import de.devdanmu.wahlblockbackend.data.entity.Voter;
 import de.devdanmu.wahlblockbackend.data.entity.VoterHash;
 import de.devdanmu.wahlblockbackend.repository.VoterHashRepository;
@@ -30,12 +30,12 @@ public class VoterLoginService {
         this.voterHashRepository = voterHashRepository;
     }
 
-    public VoterHash startVoterLogin(final LoginVoter loginVoter) throws Exception {
+    public VoterHash startVoterLogin(final VoterLogin voterLogin) throws Exception {
         VoterHash voterHash = null;
-        if (isIdCardFormatValid(loginVoter.getIdCardNumber()) && isVoterKeyFormatValid(loginVoter.getVoterKey())) {
-            Voter voter = voterRepository.findFirstByIdCardNumberAndVoterKey(loginVoter.getIdCardNumber(), loginVoter.getVoterKey());
+        if (isIdCardFormatValid(voterLogin.getIdCardNumber()) && isVoterKeyFormatValid(voterLogin.getVoterKey())) {
+            Voter voter = voterRepository.findFirstByIdCardNumberAndVoterKey(voterLogin.getIdCardNumber(), voterLogin.getVoterKey());
             if (checkVotersVotePermission(voter)) {
-                voterHash = getVoterHash(loginVoter.getPublicKey());
+                voterHash = getVoterHash(voterLogin.getPublicKey());
                 if (!StringUtils.isEmpty(voterHash.getHash())) {
                     voterHashRepository.save(voterHash);
                     voterService.updateVoterLoginStatus(voter);

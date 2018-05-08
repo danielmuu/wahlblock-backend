@@ -7,7 +7,7 @@ import lombok.Data;
  * created on 2018-03-20
  */
 @Data
-public class LoginVoter {
+public class VoterLogin {
 
     private String idCardNumber;
 

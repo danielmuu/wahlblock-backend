@@ -2,7 +2,7 @@ package de.devdanmu.wahlblockbackend.controller;
 
 import de.devdanmu.wahlblockbackend.data.entity.Election;
 import de.devdanmu.wahlblockbackend.data.HashWrapper;
-import de.devdanmu.wahlblockbackend.data.LoginVoter;
+import de.devdanmu.wahlblockbackend.data.VoterLogin;
 import de.devdanmu.wahlblockbackend.data.entity.VoterHash;
 import de.devdanmu.wahlblockbackend.service.ElectionInfoService;
 import de.devdanmu.wahlblockbackend.service.HashValidationService;
@@ -37,8 +37,8 @@ public class WahlblockController {
     }
 
     @PostMapping("/api/v1/voter/login")
-    public VoterHash setLoginAndGetPermission(@RequestBody LoginVoter loginVoter) throws Exception {
-        return voterLoginService.startVoterLogin(loginVoter);
+    public VoterHash setLoginAndGetPermission(@RequestBody VoterLogin voterLogin) throws Exception {
+        return voterLoginService.startVoterLogin(voterLogin);
     }
 
     @GetMapping("/api/v1/election/{electionId}")
