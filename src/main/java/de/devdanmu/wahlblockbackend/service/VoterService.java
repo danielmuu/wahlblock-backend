@@ -19,7 +19,7 @@ public class VoterService {
         this.voterRepository = voterRepository;
     }
 
-    public void updateVoterLoginStatus(Voter voter) {
+    void updateVoterLoginStatus(Voter voter) {
         voter.setVoteSessionStarted(true);
         voterRepository.save(voter);
     }
