@@ -5,8 +5,8 @@ import de.devdanmu.wahlblockbackend.repository.HashValidationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author danmu
@@ -22,26 +22,22 @@ public class HashValidationService {
         this.hashValidationRepository = hashValidationRepository;
     }
 
-    public List<String> validateHashList(final List<String> hashListToValidate) {
-        List<VoterHash> voterHashListToValidate = getListWithVoterHash(hashListToValidate);
-        List<VoterHash> foundValidHashes = hashValidationRepository.findByHashIn(hashListToValidate);
-        voterHashListToValidate.removeAll(foundValidHashes); // removes all valid hash values
-        return getListWithStrings(voterHashListToValidate);
+    public List<String> validateHashList(final List<String> hashStringList) {
+        List<VoterHash> checkedValidHashes = matchStringHashListWithDB(hashStringList);
+        List<VoterHash> voterHashList = getStringListAsVoterHashList(hashStringList);
+        voterHashList.removeAll(checkedValidHashes); // this removes all valid hash values
+        return getVoterHashListAsStringList(voterHashList);
     }
 
-    private List<VoterHash> getListWithVoterHash(List<String> hashListToValidate) {
-        List<VoterHash> voterHashListToValidate = new ArrayList<>();
-        for(String hash : hashListToValidate) {
-            voterHashListToValidate.add(new VoterHash(hash));
-        }
-        return voterHashListToValidate;
+    private List<VoterHash> matchStringHashListWithDB(List<String> hashStringList) {
+        return hashValidationRepository.findByHashIn(hashStringList);
     }
 
-    private List<String> getListWithStrings(List<VoterHash> voterHashListToValidate) {
-        List<String> hashListWithNonValidHashes = new ArrayList<>();
-        for(VoterHash voterHash : voterHashListToValidate) {
-            hashListWithNonValidHashes.add(voterHash.getHash());
+    private List<VoterHash> getStringListAsVoterHashList(List<String> hashStringList) {
+            return hashStringList.stream().map(VoterHash::new).collect(Collectors.toList());
         }
-        return hashListWithNonValidHashes;
-    }
+
+        private List<String> getVoterHashListAsStringList(List<VoterHash> voterHashList) {
+            return voterHashList.stream().map(VoterHash::getHash).collect(Collectors.toList());
+        }
 }
