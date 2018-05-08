@@ -16,7 +16,7 @@ public class Voter {
     @Id
     private String idCardNumber;
 
-    private Integer voterKey;
+    private String voterKey;
 
     private boolean voteSessionStarted;
 

@@ -1,13 +1,15 @@
 package de.devdanmu.wahlblockbackend.controller;
 
-import de.devdanmu.wahlblockbackend.data.entity.Election;
 import de.devdanmu.wahlblockbackend.data.HashWrapper;
 import de.devdanmu.wahlblockbackend.data.VoterLogin;
+import de.devdanmu.wahlblockbackend.data.entity.Election;
 import de.devdanmu.wahlblockbackend.data.entity.VoterHash;
 import de.devdanmu.wahlblockbackend.service.ElectionInfoService;
 import de.devdanmu.wahlblockbackend.service.HashValidationService;
 import de.devdanmu.wahlblockbackend.service.VoterLoginService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -37,8 +40,13 @@ public class WahlblockController {
     }
 
     @PostMapping("/api/v1/voter/login")
-    public VoterHash setLoginAndGetPermission(@RequestBody VoterLogin voterLogin) throws Exception {
-        return voterLoginService.startVoterLogin(voterLogin);
+    public ResponseEntity setLoginAndGetPermission(@Valid @RequestBody final VoterLogin voterLogin, final BindingResult result) throws Exception {
+        if (result.hasErrors()) {
+            return ResponseEntity.badRequest().body(result.getAllErrors()); // todo create fancy consumer friendly error object
+        } else {
+            VoterHash voterHash = voterLoginService.startVoterLogin(voterLogin);
+            return ResponseEntity.ok().body(voterHash);
+        }
     }
 
     @GetMapping("/api/v1/election/{electionId}")

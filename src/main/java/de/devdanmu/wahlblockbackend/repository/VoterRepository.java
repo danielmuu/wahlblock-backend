@@ -15,5 +15,5 @@ public interface VoterRepository extends JpaRepository<Voter, String> {
     @Override
     Voter save(Voter voter);
 
-    Voter findFirstByIdCardNumberAndVoterKey(String idCardNumber, Integer voterKey);
+    Voter findFirstByIdCardNumberAndVoterKey(String idCardNumber, String voterKey);
 }
