@@ -1,7 +1,7 @@
 INSERT INTO selection_options(election_id, position, option) VALUES (1,1,'Ja');
 INSERT INTO selection_options(election_id, position, option) VALUES (1,2,'Nein');
 
-INSERT INTO election(id, title, description, begin_date, end_date) VALUES (1, 'Sind sie für das Verbot von Haustierprofilen auf Facebook?', 'Seit dem letzten Datenschutzskandal bei Facebook, machen sich immer mehr Haustiere Sorgen um ihre Daten. Das Verbot von Haustierprofilen gibt den Tieren ein kleines bisschen Anonymität zurück und verhindert, dass die Haustierbesitzer unerlaubt Daten ihrer haarigen Begleiter teilen.', '2018-04-01 10:00:00.000', '2019-04-30 23:59:59.999');
+INSERT INTO election(id, title, description, begin_date, end_date) VALUES (1, 'Sind sie für ein Verbot von Haustierprofilen auf Facebook?', 'Seit dem letzten Datenschutzskandal bei Facebook sind immer mehr Haustiere um ihre Daten besorgt. Das Verbot von Haustierprofilen gibt den Tieren ein kleines bisschen Anonymität zurück und verhindert, dass die Haustierbesitzer unerlaubt Daten ihrer haarigen Begleiter teilen.', '2018-04-01 10:00:00.000', '2019-04-30 23:59:59.999');
 
 INSERT INTO voter(id_card_number, voter_key, vote_session_started) VALUES ('RL9LFV9TH','36176105', FALSE);
 INSERT INTO voter(id_card_number, voter_key, vote_session_started) VALUES ('WV4MV6HHT','23909098', FALSE);
