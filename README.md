@@ -148,15 +148,6 @@ Run the application
 ./gradlew bootRun
 ```
 
-See all other available tasks
-```bash
-./gradlew tasks
-```
-
 ## 3. Info
 
-DB data is lost when closing application
-
-## 4. Known Issues
-
-...
+DB is filled with data from the import.sql file on application start and DB data is lost on application exit.
