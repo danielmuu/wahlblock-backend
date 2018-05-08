@@ -24,7 +24,9 @@ public class VoterLoginService {
     private final VoterHashRepository voterHashRepository;
 
     @Autowired
-    public VoterLoginService(final VoterService voterService,final VoterRepository voterRepository, final VoterHashRepository voterHashRepository) {
+    public VoterLoginService(final VoterService voterService,
+                             final VoterRepository voterRepository,
+                             final VoterHashRepository voterHashRepository) {
         this.voterService = voterService;
         this.voterRepository = voterRepository;
         this.voterHashRepository = voterHashRepository;
