@@ -4,7 +4,7 @@
 
 ### 1.1 Get info about a election
 
-Returns for a election id the election information with title, description and election period.
+Returns for a election id the election information with title, description and election period. (Atm only one election in dummy data, so Id is 1)
 
 | **URL** |
 |:---|
@@ -17,7 +17,7 @@ Returns for a election id the election information with title, description and e
 | **URL Params** |
 |:---|
 | *Required:* |
-| `id`: id of election, always 1 atm |
+| `id`: id of election |
 
 | **Example URL** |
 |:---|
@@ -99,7 +99,7 @@ Body:
 
 ### 1.3 Validate hash values
 
-Validates a list of hash values and returns all non valid hash values as a list.
+Validates a list of hash values with hash values from logged in users in DB and returns all non valid hash values as a list.
 
 | **URL** |
 |:---|
@@ -119,8 +119,8 @@ Body:
 {
 	"data": [
 		"6485f6d071b2a88a0c6f3dc997280fa8bb21dbb0d252280db7fcac3eecddbc52",
-		"123",
-		"ABC"
+		"not a valid hash value",
+		"also not a valid hash value"
 		]
 }
 ```
@@ -134,8 +134,8 @@ Body:
 | **Code:** 200 OK |
 ```json
 [
-    "123",
-    "ABC"
+    "not a valid hash value",
+    "also not a valid hash value"
 ]
 ```
 
