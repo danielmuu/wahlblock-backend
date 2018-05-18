@@ -88,7 +88,7 @@ public class WahlblockControllerTest {
         // When
         given(wahlblockController.getElectionInfo(electionId)).willReturn(election);
 
-        // When & Then
+        // Then
         mvc.perform(get("/api/v1/election/{electionId}", electionId)
                 .contentType(MediaType.APPLICATION_JSON)
                 .characterEncoding(String.valueOf(StandardCharsets.UTF_8)))
