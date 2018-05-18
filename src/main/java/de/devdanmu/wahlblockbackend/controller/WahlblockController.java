@@ -50,7 +50,7 @@ public class WahlblockController {
     }
 
     @GetMapping("/api/v1/election/{electionId}")
-    public Election getElectionInfo(@PathVariable final Integer electionId) throws Exception {
+    public Election getElectionInfo(@PathVariable("electionId") final Integer electionId) throws Exception {
         return electionInfoService.getElection(electionId);
     }
 
