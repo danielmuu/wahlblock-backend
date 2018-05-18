@@ -6,14 +6,16 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.Arrays;
 
 /**
+ * Note for next hashing of something.
+ * There are other password hashing algorithms like PBKDF2 which are more secure.
+ *
  * @author danmu
  * created on 2018-03-15
  */
 public class SecretUtil {
-
-    private static final String CHAR_SET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
     public static String getSha256Hash(final String publicKey) {
         try {
@@ -24,8 +26,7 @@ public class SecretUtil {
     }
 
     private static String tryToGenerateSha256Hash(String publicKey) throws NoSuchAlgorithmException {
-        int saltSize = 256;
-        byte[] salt = generateSalt(saltSize);
+        byte[] salt = getSalt();
         MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
         messageDigest.update(salt);
         byte[] bytes = messageDigest.digest(publicKey.getBytes(StandardCharsets.UTF_8));
@@ -36,12 +37,11 @@ public class SecretUtil {
         return sb.toString();
     }
 
-    private static byte[] generateSalt(final int len) {
-        byte[] salt = new byte[len];
+    private static byte[] getSalt() {
+        int saltSize = 16;
+        byte[] salt = new byte[saltSize];
         SecureRandom secureRandom = new SecureRandom();
-        for (int i = 0; i < len; i++) {
-            salt[i] = (byte) CHAR_SET.charAt(secureRandom.nextInt(CHAR_SET.length()));
-        }
+        secureRandom.nextBytes(salt);
         return salt;
     }
 
