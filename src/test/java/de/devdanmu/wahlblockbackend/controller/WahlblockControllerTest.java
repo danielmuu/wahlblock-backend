@@ -46,7 +46,7 @@ public class WahlblockControllerTest {
     private WahlblockController wahlblockController;
 
     @Test
-    public void setLoginAndGetPermission() throws Exception {
+    public void should_returnAHashIn_when_voterLoginDataIsValid() throws Exception {
         // Given
         String hash1 = "ABC";
 
@@ -79,7 +79,7 @@ public class WahlblockControllerTest {
     }
 
     @Test
-    public void getElectionInfo() throws Exception {
+    public void should_returnElectionInfoForId_when_validIdIsReceived() throws Exception {
         // Given
         Election election = new Election();
         election.setTitle("Sind sie für ein Verbot von Haustierprofilen auf Facebook?");
@@ -97,7 +97,7 @@ public class WahlblockControllerTest {
     }
 
     @Test
-    public void getHashValidation() throws Exception {
+    public void should_returnAllNotValidHashValues_when_listWithHashValuesIsReceived() throws Exception {
         // Given
         String hash1 = "ABC";
         String hash2 = "DEF";

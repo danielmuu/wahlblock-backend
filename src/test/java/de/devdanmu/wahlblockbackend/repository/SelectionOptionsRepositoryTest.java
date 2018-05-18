@@ -22,7 +22,7 @@ public class SelectionOptionsRepositoryTest {
     SelectionOptionsRepository selectionOptionsRepository;
 
     @Test
-    public void findAllByElectionId() {
+    public void should_returnListOfSelectionOptions_when_selectionOptionsAreFoundWithValidIdInDb() {
         // Given
         int electionId = 1;
 

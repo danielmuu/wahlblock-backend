@@ -20,7 +20,7 @@ public class VoterRepositoryTest {
     VoterRepository voterRepository;
 
     @Test
-    public void findFirstByIdCardNumberAndVoterKey() {
+    public void should_returnVoter_when_loginVoterLoginDataIsFoundInDb () {
         // given
         String idCardNumber = "JFLMJJTLJ";
         String voterKey = "37191716";

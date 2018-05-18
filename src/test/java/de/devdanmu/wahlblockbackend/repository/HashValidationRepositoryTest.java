@@ -37,7 +37,7 @@ public class HashValidationRepositoryTest {
     }
 
     @Test
-    public void findByHashIn() {
+    public void should_returnHashListWithOneValue_when_thisValueIsFoundInDb() {
         // Given
         List<String> hashListToFind = new ArrayList<>();
         hashListToFind.add("ABC");

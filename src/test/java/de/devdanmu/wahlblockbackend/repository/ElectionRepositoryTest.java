@@ -20,7 +20,7 @@ public class ElectionRepositoryTest {
     ElectionRepository electionRepository;
 
     @Test
-    public void findFirstById() {
+    public void should_returnElectionObject_when_electionIsSearchedWithValidId() {
         // Given
         int electionId = 1;
 
